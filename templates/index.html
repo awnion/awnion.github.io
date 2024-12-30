@@ -1,0 +1,40 @@
+{% extends "terminimal/templates/index.html" %}
+
+{% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+<style>
+  pre {
+    position: relative;
+    display: block;
+  }
+
+  .copy-to-clipboard-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .copy-to-clipboard-btn:hover {
+    background-color: var(--hover-background-color, #f0f0f0);
+  }
+
+  .copy-to-clipboard-btn:active {
+    background-color: var(--active-background-color, #d0d0d0);
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('pre > code').forEach((codeBlock) => {
+      var button = document.createElement('button');
+      button.className = 'copy-to-clipboard-btn';
+      button.textContent = 'Copy';
+
+      var clipboard = new ClipboardJS(button, { target: () => codeBlock });
+      clipboard.on('success', (e) => { e.clearSelection(); });
+
+      var pre = codeBlock.parentNode; // pre element, parent of code element
+      pre.appendChild(button);
+    });
+  });
+</script>
+{% endblock %}
