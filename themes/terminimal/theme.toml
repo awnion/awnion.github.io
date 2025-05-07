@@ -13,7 +13,7 @@ homepage = "https://github.com/pawroman"
 
 # The original theme this one's been forked off.
 [original]
-author =  "Radosław Kozieł"
+author = "Radosław Kozieł"
 homepage = "https://radoslawkoziel.pl/"
 repo = "https://github.com/panr/hugo-theme-terminal"
 
