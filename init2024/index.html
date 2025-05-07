@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://awnion.github.io/style.css">
+    <link rel="stylesheet" href="https://awnion.github.io/color/blue-auto.css">
+
+        <link rel="stylesheet" href="https://awnion.github.io/color/background_auto.css">
+    
+    <link rel="stylesheet" href="https://awnion.github.io/font-hack-subset.css">
+
+    <meta name="description" content="">
+
+    <meta property="og:description" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://awnion.github.io/init2024/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="">
+    <meta property="twitter:domain" content="awnion.github.io">
+    <meta property="twitter:url" content="https://awnion.github.io/init2024/">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+<style>
+  pre {
+    position: relative;
+    display: block;
+  }
+
+  .copy-to-clipboard-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .copy-to-clipboard-btn:hover {
+    background-color: var(--hover-background-color, #f0f0f0);
+  }
+
+  .copy-to-clipboard-btn:active {
+    background-color: var(--active-background-color, #d0d0d0);
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('pre > code').forEach((codeBlock) => {
+      var button = document.createElement('button');
+      button.className = 'copy-to-clipboard-btn';
+      button.textContent = 'Copy';
+
+      var clipboard = new ClipboardJS(button, { target: () => codeBlock });
+      clipboard.on('success', (e) => { e.clearSelection(); });
+
+      var pre = codeBlock.parentNode; // pre element, parent of code element
+      pre.appendChild(button);
+    });
+  });
+</script>
+</head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://awnion.github.io" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            awnion::pages
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://awnion.github.io">home</a></li>
+            
+                <li><a href="https://awnion.github.io/tags">tags</a></li>
+            
+                <li><a href="https://awnion.github.io/archive">archive</a></li>
+            
+                <li><a href="https://github.com/awnion" target="_blank" rel="noopener noreferrer">github</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://awnion.github.io/init2024/">[Edition 2024] Bash oneliner for fresh `cargo init` project</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2025-03-03
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://awnion.github.io/tags/clippy/">#clippy</a>&nbsp;
+                <a class="post-tag" href="https://awnion.github.io/tags/editorconfig/">#editorconfig</a>&nbsp;
+                <a class="post-tag" href="https://awnion.github.io/tags/rust/">#rust</a>&nbsp;
+                <a class="post-tag" href="https://awnion.github.io/tags/toml/">#toml</a></span>
+    
+
+        <div class="post-content">
+            <h3 id="content">Content</h3>
+<ul>
+<li><code>.editorconfig</code></li>
+<li><code>taplo.toml</code> (TOML-formatter config)</li>
+<li><code>rustfmt.toml</code></li>
+<li><code>clippy.toml</code></li>
+</ul>
+<h3 id="oneliner">Oneliner</h3>
+<p>| <strong>Hint</strong>: E.g. on MacOS press "Copy" and type into the terminal: <code>pbpaste | bash</code></p>
+<pre data-lang="bash" style="background-color:#282c34;color:#dcdfe4;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#e06c75;">cat </span><span style="color:#c678dd;">&lt;&lt;</span><span style="color:#98c379;">&#39;</span><span style="color:#c678dd;">EOF</span><span style="color:#98c379;">&#39; </span><span style="color:#c678dd;">&gt;</span><span>.editorconfig
+</span><span style="color:#98c379;"># EditorConfig is awesome: https://EditorConfig.org
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;"># top-most EditorConfig file
+</span><span style="color:#98c379;">root = true
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;">[*]
+</span><span style="color:#98c379;">indent_style = space
+</span><span style="color:#98c379;">indent_size = 2
+</span><span style="color:#98c379;">end_of_line = lf
+</span><span style="color:#98c379;">charset = utf-8
+</span><span style="color:#98c379;">trim_trailing_whitespace = true
+</span><span style="color:#98c379;">insert_final_newline = true
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;">[*.rs]
+</span><span style="color:#98c379;">indent_size = 4
+</span><span style="color:#98c379;">indent_style = space
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;">[*.py]
+</span><span style="color:#98c379;">indent_size = 4
+</span><span style="color:#98c379;">indent_style = space
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;">[Makefile]
+</span><span style="color:#98c379;">indent_style = tab
+</span><span style="color:#98c379;">indent_size = 8
+</span><span style="color:#c678dd;">EOF
+</span><span>
+</span><span style="color:#e06c75;">cat </span><span style="color:#c678dd;">&lt;&lt;</span><span style="color:#98c379;">&#39;</span><span style="color:#c678dd;">EOF</span><span style="color:#98c379;">&#39; </span><span style="color:#c678dd;">&gt;</span><span>taplo.toml
+</span><span style="color:#98c379;">include = [&quot;**/*.toml&quot;]
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;">[formatting]
+</span><span style="color:#98c379;">reorder_arrays = false
+</span><span style="color:#98c379;"># Once it will be fixed in taplo
+</span><span style="color:#98c379;">indent_string = &quot;    &quot;
+</span><span style="color:#98c379;">column_width = 80
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;">[[rule]]
+</span><span style="color:#98c379;">include = [&quot;**/Cargo.toml&quot;]
+</span><span style="color:#98c379;">formatting.inline_table_expand = false
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;">[[rule]]
+</span><span style="color:#98c379;">include = [&quot;**/Cargo.toml&quot;]
+</span><span style="color:#98c379;">keys = [&quot;dependencies&quot;, &quot;*-dependencies&quot;, &quot;workspace.dependencies&quot;]
+</span><span style="color:#98c379;">formatting.reorder_keys = true
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;">[[rule]]
+</span><span style="color:#98c379;">include = [&quot;Cargo.toml&quot;]
+</span><span style="color:#98c379;">keys = [&quot;workspace&quot;, &quot;members&quot;]
+</span><span style="color:#98c379;">formatting.reorder_arrays = true
+</span><span style="color:#c678dd;">EOF
+</span><span>
+</span><span style="color:#e06c75;">cat </span><span style="color:#c678dd;">&lt;&lt;</span><span style="color:#98c379;">&#39;</span><span style="color:#c678dd;">EOF</span><span style="color:#98c379;">&#39; </span><span style="color:#c678dd;">&gt;</span><span>rustfmt.toml
+</span><span style="color:#98c379;"># we can&#39;t rely on contributors using .editorconfig
+</span><span style="color:#98c379;">newline_style = &quot;Unix&quot;
+</span><span style="color:#98c379;"># require the shorthand instead of it being optional
+</span><span style="color:#98c379;">use_field_init_shorthand = true
+</span><span style="color:#98c379;"># outdated default — `?` was unstable at the time
+</span><span style="color:#98c379;"># additionally the `try!` macro is deprecated now
+</span><span style="color:#98c379;">use_try_shorthand = true
+</span><span style="color:#98c379;"># Max to use the 100 char width for everything or Default. See https://rust-lang.github.io/rustfmt/?version=v1.4.38&amp;search=#use_small_heuristics
+</span><span style="color:#98c379;">use_small_heuristics = &quot;Max&quot;
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;">style_edition = &quot;2024&quot;
+</span><span style="color:#98c379;">unstable_features = true
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;"># better grepping
+</span><span style="color:#98c379;">imports_granularity = &quot;Item&quot;
+</span><span style="color:#98c379;">group_imports = &quot;StdExternalCrate&quot;
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;">normalize_comments = true
+</span><span style="color:#98c379;">reorder_impl_items = true
+</span><span style="color:#98c379;">reorder_modules = true
+</span><span style="color:#98c379;">wrap_comments = false
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;">format_code_in_doc_comments = true
+</span><span style="color:#98c379;">format_macro_bodies = true
+</span><span style="color:#98c379;">format_macro_matchers = true
+</span><span style="color:#c678dd;">EOF
+</span><span>
+</span><span style="color:#e06c75;">cat </span><span style="color:#c678dd;">&lt;&lt;</span><span style="color:#98c379;">&#39;</span><span style="color:#c678dd;">EOF</span><span style="color:#98c379;">&#39; </span><span style="color:#c678dd;">&gt;</span><span>clippy.toml
+</span><span style="color:#98c379;"># :schema
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;">msrv = &quot;1.86&quot;
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;">allow-unwrap-in-tests = true
+</span><span style="color:#98c379;">type-complexity-threshold = 2000 # for our needs long types are fine
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;"># https://rust-lang.github.io/rust-clippy/master/index.html#disallowed_macros
+</span><span style="color:#98c379;">disallowed-macros = [
+</span><span style="color:#98c379;">    # &quot;std::unimplemented&quot;, # generated by ArrowDeserialize derive-macro :(
+</span><span style="color:#98c379;">]
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;"># https://rust-lang.github.io/rust-clippy/master/index.html#disallowed_methods
+</span><span style="color:#98c379;">disallowed-methods = [
+</span><span style="color:#98c379;">    &quot;std::env::temp_dir&quot;, # Use the tempdir crate instead
+</span><span style="color:#98c379;">    &quot;std::thread::spawn&quot;, # Use `std::thread::Builder` and name the thread
+</span><span style="color:#98c379;">    &quot;sha1::Digest::new&quot;,        # SHA1 is cryptographically broken
+</span><span style="color:#98c379;">    &quot;std::panic::catch_unwind&quot;, # We compile with `panic = &quot;abort&quot;`
+</span><span style="color:#98c379;">]
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;"># https://rust-lang.github.io/rust-clippy/master/index.html#disallowed_names
+</span><span style="color:#98c379;">disallowed-names = []
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;"># https://rust-lang.github.io/rust-clippy/master/index.html#disallowed_types
+</span><span style="color:#98c379;">disallowed-types = [
+</span><span style="color:#98c379;">    # Use the faster &amp; simpler non-poisonable primitives in `parking_lot` instead
+</span><span style="color:#98c379;">    # &quot;std::sync::Mutex&quot;,
+</span><span style="color:#98c379;">    &quot;std::sync::RwLock&quot;,
+</span><span style="color:#98c379;">    &quot;std::sync::Condvar&quot;,
+</span><span style="color:#98c379;">    # &quot;std::sync::Once&quot;,  # enabled for now as the `log_once` macro uses it internally
+</span><span style="color:#98c379;">]
+</span><span style="color:#98c379;">
+</span><span style="color:#98c379;"># Allow-list of words for markdown in dosctrings https://rust-lang.github.io/rust-clippy/master/index.html#doc_markdown
+</span><span style="color:#98c379;">doc-valid-idents = []
+</span><span style="color:#c678dd;">EOF
+</span></code></pre>
+
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h">Thanks for reading! Read other posts?</span>
+                    <hr />
+                </div>
+                <div class="pagination__buttons">
+                        <span class="button previous">
+                            <a href="https://awnion.github.io/init/">
+                                <span class="button__icon">←</span>&nbsp;
+                                <span class="button__text">Bash oneliner for fresh `cargo init` project</span>
+                            </a>
+                        </span>
+                    
+                    </div>
+            </div>
+        
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright">
+                        <span>© 
+    2025
+ Powered by <a href="https://www.getzola.org/">Zola</a></span>
+                    <span class="copyright-theme">
+                        <span class="copyright-theme-sep">:: </span>
+                        Theme: <a href="https://github.com/pawroman/zola-theme-terminimal/">Terminimal</a> by pawroman
+                    </span>
+                </div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>
