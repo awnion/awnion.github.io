@@ -13,12 +13,25 @@ insert_final_newline = true
 
 [*.rs]
 indent_size = 4
-indent_style = space
 
 [*.py]
 indent_size = 4
-indent_style = space
+
+[*.md]
+trim_trailing_whitespace = false   # two trailing spaces = <br> in markdown
+
+[*.{yml,yaml}]
+indent_size = 2
+
+[*.{toml,json}]
+indent_size = 2
+
+[*.sh]
+indent_size = 2
+end_of_line = lf
+
+[*.{bat,cmd,ps1}]
+end_of_line = crlf
 
 [Makefile]
 indent_style = tab
-indent_size = 8

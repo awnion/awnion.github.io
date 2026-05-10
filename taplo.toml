@@ -1,8 +1,9 @@
 include = ["**/*.toml"]
+exclude = ["target/**", "node_modules/**", "**/vendor/**"]
 
 [formatting]
 reorder_arrays = false
-# Once it will be fixed in taplo
+align_entries = false
 indent_string = "    "
 column_width = 80
 
@@ -12,7 +13,7 @@ formatting.inline_table_expand = false
 
 [[rule]]
 include = ["**/Cargo.toml"]
-keys = ["dependencies", "*-dependencies", "workspace.dependencies"]
+keys = ["dependencies", "*-dependencies", "workspace.dependencies", "features"]
 formatting.reorder_keys = true
 
 [[rule]]
