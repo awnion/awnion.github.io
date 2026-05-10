@@ -1,15 +1,40 @@
-# On every push this script is executed
-on: push
+# On every push (and PR) this workflow is executed.
+# The action's version tag follows the Zola version it ships with —
+# keep it in sync with the Zola we develop against locally.
+on:
+  push:
+  pull_request:
+
 name: Build and deploy GH Pages
+
 jobs:
+  # Validate the site on every push / PR (no deploy).
+  check:
+    runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/main' || github.event_name == 'pull_request'
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: zola_build
+        uses: shalzz/zola-deploy-action@v0.22.0
+        env:
+          BUILD_ONLY: true
+          BUILD_THEMES: true
+      - name: zola_check
+        uses: shalzz/zola-deploy-action@v0.22.0
+        env:
+          BUILD_ONLY: true
+          CHECK_LINKS: true
+
+  # Deploy only from main.
   build:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     steps:
       - name: checkout
         uses: actions/checkout@v4
       - name: build_and_deploy
-        uses: shalzz/zola-deploy-action@master
+        uses: shalzz/zola-deploy-action@v0.22.0
         env:
           # Target branch
           PAGES_BRANCH: gh-pages
