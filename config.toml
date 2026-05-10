@@ -1,5 +1,6 @@
 # The URL the site will be built for
 base_url = "https://awnion.github.io"
+title = "awnion::pages"
 
 theme = "terminimal"
 
@@ -22,6 +23,9 @@ theme = "one-dark-pro"
 
 [extra]
 # Put all your custom variables here
+
+# How <title> is composed: "combined" → "Page title | Site title", "page_only" → "Page title".
+page_titles = "combined"
 
 menu_items = [
     # each of these is optional, name and url are required
