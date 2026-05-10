@@ -17,16 +17,18 @@ tags = ["rust", "toml", "editorconfig", "clippy"]
 
 ### Oneliner
 
-> **Hint**: run it directly:
->
-> - `curl -fsSL https://awnion.github.io/init.sh | bash`
->
-> Or pipe your clipboard into `bash` (after copying the script below):
->
-> - MacOS: `pbpaste | bash`
-> - X11: `xclip -o -selection clipboard | bash`
-> - Wayland: `wl-paste | bash`
-> - Windows: `powershell.exe -c Get-Clipboard | bash`
+View on GitHub: [`static/init.sh`](https://github.com/awnion/awnion.github.io/blob/main/static/init.sh)
+(download: [`https://awnion.github.io/init.sh`](https://awnion.github.io/init.sh))
+
+```bash
+curl -fsSL https://awnion.github.io/init.sh | bash
+```
+
+Or pipe your clipboard into `bash` (after copying the script below):
+
+- MacOS: `pbpaste | bash`
+- X11: `xclip -o -selection clipboard | bash`
+- Wayland: `wl-paste | bash`
+- Windows: `powershell.exe -c Get-Clipboard | bash`
 
 {{ load_file(path="static/init.sh", language="bash") }}
-
