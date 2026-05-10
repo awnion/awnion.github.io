@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>awnion::pages</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://awnion.github.io/style.css">
+    <link rel="stylesheet" href="https://awnion.github.io/color/blue-auto.css">
+
+        <link rel="stylesheet" href="https://awnion.github.io/color/background_auto.css">
+    
+    <link rel="stylesheet" href="https://awnion.github.io/font-hack-subset.css">
+
+    <meta name="description" content="">
+
+    <meta property="og:description" content="">
+    <meta property="og:title" content="awnion::pages">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://awnion.github.io/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="awnion::pages">
+    <meta property="twitter:domain" content="awnion.github.io">
+    <meta property="twitter:url" content="https://awnion.github.io/">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+<style>
+  pre {
+    position: relative;
+    display: block;
+  }
+
+  .copy-to-clipboard-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .copy-to-clipboard-btn:hover {
+    background-color: var(--hover-background-color, #f0f0f0);
+  }
+
+  .copy-to-clipboard-btn:active {
+    background-color: var(--active-background-color, #d0d0d0);
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('pre > code').forEach((codeBlock) => {
+      var button = document.createElement('button');
+      button.className = 'copy-to-clipboard-btn';
+      button.textContent = 'Copy';
+
+      var clipboard = new ClipboardJS(button, { target: () => codeBlock });
+      clipboard.on('success', (e) => { e.clearSelection(); });
+
+      var pre = codeBlock.parentNode; // pre element, parent of code element
+      pre.appendChild(button);
+    });
+  });
+</script>
+</head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://awnion.github.io" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            awnion::pages
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://awnion.github.io">home</a></li>
+            
+                <li><a href="https://awnion.github.io/tags">tags</a></li>
+            
+                <li><a href="https://awnion.github.io/archive">archive</a></li>
+            
+                <li><a href="https://github.com/awnion" target="_blank" rel="noopener noreferrer">github</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+        <div class="posts">
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://awnion.github.io/init/">[Edition 2024] Bash oneliner for fresh `cargo init` project</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2025-03-03
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://awnion.github.io/tags/clippy/">#clippy</a>&nbsp;
+                <a class="post-tag" href="https://awnion.github.io/tags/editorconfig/">#editorconfig</a>&nbsp;
+                <a class="post-tag" href="https://awnion.github.io/tags/rust/">#rust</a>&nbsp;
+                <a class="post-tag" href="https://awnion.github.io/tags/toml/">#toml</a></span>
+    
+
+
+                    <div class="post-content">
+            <h3 id="content">Content</h3>
+<ul>
+<li><code>.editorconfig</code></li>
+<li><code>taplo.toml</code> (TOML-formatter config)</li>
+<li><code>rustfmt.toml</code></li>
+<li><code>clippy.toml</code></li>
+<li><code>lints.toml</code> (template for <code>[workspace.lints]</code> in your <code>Cargo.toml</code>)</li>
+</ul>
+<h3 id="oneliner">Oneliner</h3>
+<p>View on GitHub: <a rel="external" href="https://github.com/awnion/awnion.github.io/blob/main/static/init.sh"><code>static/init.sh</code></a>
+(download: <a rel="external" href="https://awnion.github.io/init.sh"><code>https://awnion.github.io/init.sh</code></a>)</p>
+<pre class="giallo" style="color: #ABB2BF; background-color: #282C34;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #61AFEF;">curl</span><span style="color: #D19A66;"> -fsSL</span><span style="color: #98C379;"> https://awnion.github.io/init.sh</span><span> |</span><span style="color: #61AFEF;"> bash</span></span></code></pre>
+<p>Or pipe your clipboard into <code>bash</code> (after copying the script below):</p>
+<ul>
+<li>MacOS: <code>pbpaste | bash</code></li>
+<li>X11: <code>xclip -o -selection clipboard | bash</code></li>
+<li>Wayland: <code>wl-paste | bash</code></li>
+<li>Windows: <code>powershell.exe -c Get-Clipboard | bash</code></li>
+</ul>
+<pre class="giallo" style="color: #ABB2BF; background-color: #282C34;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #7F848E;font-style: italic;">#!/usr/bin/env bash</span></span>
+<span class="giallo-l"><span style="color: #56B6C2;">set</span><span style="color: #D19A66;"> -euo</span><span style="color: #98C379;"> pipefail</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F848E;font-style: italic;"># Backup existing files (if any) before overwriting them.</span></span>
+<span class="giallo-l"><span style="color: #C678DD;">for</span><span style="color: #E06C75;"> f</span><span style="color: #C678DD;"> in</span><span style="color: #98C379;"> .editorconfig taplo.toml rustfmt.toml clippy.toml lints.toml</span><span>;</span><span style="color: #C678DD;"> do</span></span>
+<span class="giallo-l"><span>    [[</span><span style="color: #56B6C2;"> -e</span><span style="color: #98C379;"> &quot;</span><span style="color: #E06C75;">$f</span><span style="color: #98C379;">&quot;</span><span> ]] &amp;&amp;</span><span style="color: #61AFEF;"> cp</span><span style="color: #98C379;"> &quot;</span><span style="color: #E06C75;">$f</span><span style="color: #98C379;">&quot; &quot;</span><span style="color: #E06C75;">$f</span><span style="color: #98C379;">.bak.$(</span><span style="color: #61AFEF;">date</span><span style="color: #98C379;"> +%s)&quot;</span></span>
+<span class="giallo-l"><span style="color: #C678DD;">done</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #61AFEF;">cat</span><span> &lt;&lt;&#39;EOF&#39; &gt;</span><span style="color: #98C379;">.editorconfig</span></span>
+<span class="giallo-l"><span style="color: #98C379;"># EditorConfig is awesome: https://EditorConfig.org</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;"># top-most EditorConfig file</span></span>
+<span class="giallo-l"><span style="color: #98C379;">root = true</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">[*]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">indent_style = space</span></span>
+<span class="giallo-l"><span style="color: #98C379;">indent_size = 2</span></span>
+<span class="giallo-l"><span style="color: #98C379;">end_of_line = lf</span></span>
+<span class="giallo-l"><span style="color: #98C379;">charset = utf-8</span></span>
+<span class="giallo-l"><span style="color: #98C379;">trim_trailing_whitespace = true</span></span>
+<span class="giallo-l"><span style="color: #98C379;">insert_final_newline = true</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">[*.rs]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">indent_size = 4</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">[*.py]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">indent_size = 4</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">[*.md]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">trim_trailing_whitespace = false   # two trailing spaces = &lt;br&gt; in markdown</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">[*.{yml,yaml}]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">indent_size = 2</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">[*.{toml,json}]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">indent_size = 2</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">[*.sh]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">indent_size = 2</span></span>
+<span class="giallo-l"><span style="color: #98C379;">end_of_line = lf</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">[*.{bat,cmd,ps1}]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">end_of_line = crlf</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">[Makefile]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">indent_style = tab</span></span>
+<span class="giallo-l"><span>EOF</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #61AFEF;">cat</span><span> &lt;&lt;&#39;EOF&#39; &gt;</span><span style="color: #98C379;">taplo.toml</span></span>
+<span class="giallo-l"><span style="color: #98C379;">include = [&quot;**/*.toml&quot;]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">exclude = [&quot;target/**&quot;, &quot;node_modules/**&quot;, &quot;**/vendor/**&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">[formatting]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">reorder_arrays = false</span></span>
+<span class="giallo-l"><span style="color: #98C379;">align_entries  = false</span></span>
+<span class="giallo-l"><span style="color: #98C379;">indent_string  = &quot;    &quot;</span></span>
+<span class="giallo-l"><span style="color: #98C379;">column_width   = 80</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">[[rule]]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">include = [&quot;**/Cargo.toml&quot;]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">formatting.inline_table_expand = false</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">[[rule]]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">include = [&quot;**/Cargo.toml&quot;]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">keys = [&quot;dependencies&quot;, &quot;*-dependencies&quot;, &quot;workspace.dependencies&quot;, &quot;features&quot;]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">formatting.reorder_keys = true</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">[[rule]]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">include = [&quot;Cargo.toml&quot;]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">keys = [&quot;workspace&quot;, &quot;members&quot;]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">formatting.reorder_arrays = true</span></span>
+<span class="giallo-l"><span>EOF</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #61AFEF;">cat</span><span> &lt;&lt;&#39;EOF&#39; &gt;</span><span style="color: #98C379;">rustfmt.toml</span></span>
+<span class="giallo-l"><span style="color: #98C379;"># NOTE: this config relies on unstable rustfmt options.</span></span>
+<span class="giallo-l"><span style="color: #98C379;"># Run with: `cargo +nightly fmt`</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;"># we can&#39;t rely on contributors using .editorconfig</span></span>
+<span class="giallo-l"><span style="color: #98C379;">newline_style = &quot;Unix&quot;</span></span>
+<span class="giallo-l"><span style="color: #98C379;"># require the shorthand instead of it being optional</span></span>
+<span class="giallo-l"><span style="color: #98C379;">use_field_init_shorthand = true</span></span>
+<span class="giallo-l"><span style="color: #98C379;"># outdated default — `?` was unstable at the time</span></span>
+<span class="giallo-l"><span style="color: #98C379;"># additionally the `try!` macro is deprecated now</span></span>
+<span class="giallo-l"><span style="color: #98C379;">use_try_shorthand = true</span></span>
+<span class="giallo-l"><span style="color: #98C379;"># Max to use the 100 char width for everything or Default. See https://rust-lang.github.io/rustfmt/?version=v1.4.38&amp;search=#use_small_heuristics</span></span>
+<span class="giallo-l"><span style="color: #98C379;">use_small_heuristics = &quot;Max&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">style_edition = &quot;2024&quot;</span></span>
+<span class="giallo-l"><span style="color: #98C379;">unstable_features = true</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;"># better grepping</span></span>
+<span class="giallo-l"><span style="color: #98C379;">imports_granularity = &quot;Item&quot;</span></span>
+<span class="giallo-l"><span style="color: #98C379;">group_imports = &quot;StdExternalCrate&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">normalize_comments = true</span></span>
+<span class="giallo-l"><span style="color: #98C379;">reorder_impl_items = true</span></span>
+<span class="giallo-l"><span style="color: #98C379;">reorder_modules = true</span></span>
+<span class="giallo-l"><span style="color: #98C379;">wrap_comments = false</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">format_code_in_doc_comments = true</span></span>
+<span class="giallo-l"><span style="color: #98C379;">format_macro_bodies = true</span></span>
+<span class="giallo-l"><span style="color: #98C379;">format_macro_matchers = true</span></span>
+<span class="giallo-l"><span>EOF</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #61AFEF;">cat</span><span> &lt;&lt;&#39;EOF&#39; &gt;</span><span style="color: #98C379;">clippy.toml</span></span>
+<span class="giallo-l"><span style="color: #98C379;"># :schema</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">msrv = &quot;1.95&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">allow-unwrap-in-tests = true</span></span>
+<span class="giallo-l"><span style="color: #98C379;">allow-expect-in-tests = true</span></span>
+<span class="giallo-l"><span style="color: #98C379;">allow-panic-in-tests  = true</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;"># Treat the crate as internal so `clippy::pedantic` also flags would-be</span></span>
+<span class="giallo-l"><span style="color: #98C379;"># &quot;breaking&quot; public-API changes (we don&#39;t ship a public API anyway).</span></span>
+<span class="giallo-l"><span style="color: #98C379;">avoid-breaking-exported-api = false</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">type-complexity-threshold = 2000 # for our needs long types are fine</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;"># https://rust-lang.github.io/rust-clippy/master/index.html#disallowed_macros</span></span>
+<span class="giallo-l"><span style="color: #98C379;">disallowed-macros = [</span></span>
+<span class="giallo-l"><span style="color: #98C379;">    # &quot;std::unimplemented&quot;, # generated by ArrowDeserialize derive-macro :(</span></span>
+<span class="giallo-l"><span style="color: #98C379;">]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;"># https://rust-lang.github.io/rust-clippy/master/index.html#disallowed_methods</span></span>
+<span class="giallo-l"><span style="color: #98C379;">disallowed-methods = [</span></span>
+<span class="giallo-l"><span style="color: #98C379;">    { path = &quot;std::env::temp_dir&quot;,            reason = &quot;use the `tempfile` crate&quot; },</span></span>
+<span class="giallo-l"><span style="color: #98C379;">    { path = &quot;std::thread::spawn&quot;,            reason = &quot;use `std::thread::Builder` and name the thread&quot; },</span></span>
+<span class="giallo-l"><span style="color: #98C379;">    { path = &quot;sha1::Digest::new&quot;,             reason = &quot;SHA1 is cryptographically broken&quot; },</span></span>
+<span class="giallo-l"><span style="color: #98C379;">    { path = &quot;std::process::exit&quot;,            reason = &quot;skips destructors; return from `main` instead&quot; },</span></span>
+<span class="giallo-l"><span style="color: #98C379;">    { path = &quot;tokio::sync::Mutex::blocking_lock&quot;, reason = &quot;deadlocks the runtime&quot; },</span></span>
+<span class="giallo-l"><span style="color: #98C379;">    { path = &quot;std::time::SystemTime::now&quot;,    reason = &quot;use a clock abstraction for testability&quot; },</span></span>
+<span class="giallo-l"><span style="color: #98C379;">    # Uncomment if the project is compiled with `panic = &quot;abort&quot;`:</span></span>
+<span class="giallo-l"><span style="color: #98C379;">    # { path = &quot;std::panic::catch_unwind&quot;, reason = &quot;we compile with panic = abort&quot; },</span></span>
+<span class="giallo-l"><span style="color: #98C379;">]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;"># https://rust-lang.github.io/rust-clippy/master/index.html#disallowed_names</span></span>
+<span class="giallo-l"><span style="color: #98C379;">disallowed-names = []</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;"># https://rust-lang.github.io/rust-clippy/master/index.html#disallowed_types</span></span>
+<span class="giallo-l"><span style="color: #98C379;">disallowed-types = [</span></span>
+<span class="giallo-l"><span style="color: #98C379;">    &quot;std::sync::RwLock&quot;,</span></span>
+<span class="giallo-l"><span style="color: #98C379;">    &quot;std::sync::Condvar&quot;,</span></span>
+<span class="giallo-l"><span style="color: #98C379;">    # &quot;std::sync::Once&quot;,  # enabled for now as the `log_once` macro uses it internally</span></span>
+<span class="giallo-l"><span style="color: #98C379;">]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;"># Allow-list of words for markdown in docstrings https://rust-lang.github.io/rust-clippy/master/index.html#doc_markdown</span></span>
+<span class="giallo-l"><span style="color: #98C379;">doc-valid-idents = []</span></span>
+<span class="giallo-l"><span>EOF</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #61AFEF;">cat</span><span> &lt;&lt;&#39;EOF&#39; &gt;</span><span style="color: #98C379;">lints.toml</span></span>
+<span class="giallo-l"><span style="color: #98C379;"># This file is a TEMPLATE for `[workspace.lints]` — it is NOT picked up by Cargo</span></span>
+<span class="giallo-l"><span style="color: #98C379;"># automatically. `clippy.toml` only configures behavior of specific lints, it</span></span>
+<span class="giallo-l"><span style="color: #98C379;"># does NOT enable any of them. To actually enable the lint set below, copy the</span></span>
+<span class="giallo-l"><span style="color: #98C379;"># `[rust]` and `[clippy]` tables into your workspace-root `Cargo.toml` under</span></span>
+<span class="giallo-l"><span style="color: #98C379;"># `[workspace.lints.rust]` and `[workspace.lints.clippy]` respectively, e.g.:</span></span>
+<span class="giallo-l"><span style="color: #98C379;">#</span></span>
+<span class="giallo-l"><span style="color: #98C379;">#   # workspace root Cargo.toml</span></span>
+<span class="giallo-l"><span style="color: #98C379;">#   [workspace.lints.rust]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">#   unsafe_code = &quot;deny&quot;</span></span>
+<span class="giallo-l"><span style="color: #98C379;">#   ...</span></span>
+<span class="giallo-l"><span style="color: #98C379;">#</span></span>
+<span class="giallo-l"><span style="color: #98C379;">#   [workspace.lints.clippy]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">#   pedantic = { level = &quot;warn&quot;, priority = -1 }</span></span>
+<span class="giallo-l"><span style="color: #98C379;">#   ...</span></span>
+<span class="giallo-l"><span style="color: #98C379;">#</span></span>
+<span class="giallo-l"><span style="color: #98C379;"># Then in EVERY member crate `Cargo.toml` opt in with:</span></span>
+<span class="giallo-l"><span style="color: #98C379;">#</span></span>
+<span class="giallo-l"><span style="color: #98C379;">#   [lints]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">#   workspace = true</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">[rust]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">unsafe_code                   = &quot;deny&quot;</span></span>
+<span class="giallo-l"><span style="color: #98C379;">unreachable_pub               = &quot;warn&quot;</span></span>
+<span class="giallo-l"><span style="color: #98C379;">missing_debug_implementations = &quot;warn&quot;</span></span>
+<span class="giallo-l"><span style="color: #98C379;">rust_2018_idioms              = { level = &quot;warn&quot;, priority = -1 }</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #98C379;">[clippy]</span></span>
+<span class="giallo-l"><span style="color: #98C379;">pedantic = { level = &quot;warn&quot;, priority = -1 }</span></span>
+<span class="giallo-l"><span style="color: #98C379;">nursery  = { level = &quot;warn&quot;, priority = -1 }</span></span>
+<span class="giallo-l"><span style="color: #98C379;">cargo    = { level = &quot;warn&quot;, priority = -1 }</span></span>
+<span class="giallo-l"><span style="color: #98C379;"># Selectively silence the noisy ones:</span></span>
+<span class="giallo-l"><span style="color: #98C379;">module_name_repetitions = &quot;allow&quot;</span></span>
+<span class="giallo-l"><span style="color: #98C379;">must_use_candidate      = &quot;allow&quot;</span></span>
+<span class="giallo-l"><span style="color: #98C379;">missing_errors_doc      = &quot;allow&quot;</span></span>
+<span class="giallo-l"><span>EOF</span></span></code></pre>
+        </div>
+
+                </div>
+            <div class="pagination">
+                <div class="pagination__buttons"></div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright">
+                        <span>© 
+    2026
+ Powered by <a href="https://www.getzola.org/">Zola</a></span>
+                    <span class="copyright-theme">
+                        <span class="copyright-theme-sep">:: </span>
+                        Theme: <a href="https://github.com/pawroman/zola-theme-terminimal/">Terminimal</a> by pawroman
+                    </span>
+                </div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>
